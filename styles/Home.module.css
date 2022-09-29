@@ -82,9 +82,29 @@
   line-height: 1.5;
 }
 
-.logo {
-  height: 1em;
-  margin-left: 0.5rem;
+.charts {
+  background: #fff;
+  width: 100%;
+  padding: 0px 100px 25px;
+  color: #000;
+  text-align: center;
+}
+
+.charts div {
+  text-align: initial;
+}
+
+.charts a {
+  color: #0000ff;
+  text-decoration: underline;
+}
+
+.charts a:hover {
+  text-decoration: none;
+}
+
+.charts h2 {
+  font-size: 2rem;
 }
 
 @media screen and (max-width: 500px) {

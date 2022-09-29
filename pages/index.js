@@ -1,5 +1,56 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
+import {
+	Chart as ChartJS,
+	CategoryScale,
+	LinearScale,
+	BarElement,
+	Title,
+	Tooltip,
+	Legend,
+} from 'chart.js';
+import { Bar } from 'react-chartjs-2';
+
+ChartJS.register(
+	CategoryScale,
+	LinearScale,
+	BarElement,
+	Title,
+	Tooltip,
+	Legend
+);
+
+export const options = {
+	responsive: true,
+	plugins: {
+		legend: {
+			position: 'top',
+		},
+		title: {
+			display: true,
+			text: '',
+		},
+	},
+};
+
+const labels = ['Muertos en combate', 'Suicidios', 'Heridos'];
+
+export const data = {
+	labels,
+	datasets: [
+		{
+			label: 'Argentina',
+			data: [649, 1877, 1657],
+			backgroundColor: 'rgba(99, 198, 255, 0.5)',
+		},
+
+		{
+			label: 'Gran Bretaña',
+			data: [255, 250, 775],
+			backgroundColor: 'rgba(255, 8, 0, 0.5)',
+		},
+	],
+};
 
 export default function Home() {
 	return (
@@ -94,6 +145,23 @@ export default function Home() {
 						></iframe>
 					</div>
 				</div>
+
+				<section className={styles.charts}>
+					<h2>Estadísticas</h2>
+					<Bar options={options} data={data} />
+					<div>
+						<span>
+							Datos extraídos de{' '}
+							<a
+								href='https://www.infobae.com/politica/2022/04/02/guerra-de-malvinas-el-70-de-los-combatientes-argentinos-tenia-menos-de-25-anos/'
+								target='_blank'
+								rel='noopener noreferrer'
+							>
+								Infobae
+							</a>
+						</span>
+					</div>
+				</section>
 			</main>
 
 			<footer className={styles.footer}>Hecho por Martín Valdez</footer>
